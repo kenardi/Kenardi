@@ -96,6 +96,8 @@ describe('Timeline profiler', () => {
             markOptions.startTime++;
           }
         },
+        measure() {},
+        clearMeasures() {},
       };
     }
 
@@ -375,9 +377,10 @@ describe('Timeline profiler', () => {
                     "--render-start-128",
                     "--component-render-start-Foo",
                     "--component-render-stop",
-                    "--render-yield",
+                    "--render-yield-stop",
                   ]
               `);
+        await waitForPaint(['Bar']);
       });
 
       it('should mark concurrent render with suspense that resolves', async () => {
