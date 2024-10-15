@@ -41,7 +41,6 @@ import {
   mapInstructionValueOperands,
   mapTerminalOperands,
 } from '../HIR/visitors';
-import {identifier} from '@babel/types';
 
 type InlinedJsxDeclarationMap = Map<
   DeclarationId,
@@ -666,7 +665,7 @@ function handlePlace(
   place: Place,
   blockId: BlockId,
   inlinedJsxDeclarations: InlinedJsxDeclarationMap,
-) {
+): Place {
   const inlinedJsxDeclaration = inlinedJsxDeclarations.get(
     place.identifier.declarationId,
   );
@@ -684,7 +683,7 @@ function handlelValue(
   lvalue: Place,
   blockId: BlockId,
   inlinedJsxDeclarations: InlinedJsxDeclarationMap,
-) {
+): Place {
   const inlinedJsxDeclaration = inlinedJsxDeclarations.get(
     lvalue.identifier.declarationId,
   );
